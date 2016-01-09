@@ -19,6 +19,6 @@ cd SamuMovie/
 make
 ./SamuMovie
 ```
-[]()
+[https://youtu.be/XOPORbI1hz4](https://youtu.be/XOPORbI1hz4)
 
-
+![samumovie](https://cloud.githubusercontent.com/assets/3148120/12219039/13fe4f14-b732-11e5-9590-1bd0d875fc93.png)
