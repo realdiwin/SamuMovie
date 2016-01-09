@@ -8,7 +8,7 @@ to predict the next sentences of a conversation.
 After the basic work on the [joining](https://github.com/nbatfai/SamuLife) 
 of Conway's Game of Life and Samu's COP engine is done, 
 now I have started to work on creating a similar but much simpler example 
-in which must learn the frames of the moving picture.
+in which Samu must learn the frames of the moving picture.
 
 ## Usage
 
