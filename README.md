@@ -22,3 +22,27 @@ make
 [https://youtu.be/XOPORbI1hz4](https://youtu.be/XOPORbI1hz4)
 
 ![samumovie](https://cloud.githubusercontent.com/assets/3148120/12219039/13fe4f14-b732-11e5-9590-1bd0d875fc93.png)
+
+It is important to note that in the previous version the COP-based Q-learning 
+has become trivial because after a short starting period it chooses the Q-action 
+that was passed in as the actual cell state argument. It means that the agent 
+does not predict the future but the present. This version has already been 
+improved. It really predicts the future.
+
+## Other experiments
+
+Samu (Nahshon)
+http://arxiv.org/abs/1511.02889, 
+https://github.com/nbatfai/nahshon
+
+SamuLife
+https://github.com/nbatfai/SamuLife,
+https://youtu.be/b60m__3I-UM
+
+SamuStroop
+https://github.com/nbatfai/SamuStroop, 
+https://youtu.be/6elIla_bIrw, 
+https://youtu.be/VujHHeYuzIk
+
+SamuBrain
+https://github.com/nbatfai/SamuBrain

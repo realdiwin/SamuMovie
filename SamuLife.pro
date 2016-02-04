@@ -3,7 +3,7 @@
 ######################################################################
 
 DEFINES += LIFEOFGAME
-DEFINES += SARSA
+#DEFINES += SARSA
 DEFINES += Q_LOOKUP_TABLE
 
 QT += widgets core

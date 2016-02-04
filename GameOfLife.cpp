@@ -76,10 +76,11 @@ GameOfLife::GameOfLife ( int w, int h ) : m_w ( w ), m_h ( h )
   manx = m_w/2;
   housex = 2*m_w/5;
 
+  /*
   house ( lattice, housex, 3*m_h/5 -6 );
   car ( lattice, carx, 3*m_h/5 +1 );
   man ( lattice, manx, 3*m_h/5-1 );
-
+*/
 
 }
 
@@ -198,16 +199,23 @@ void GameOfLife::development()
         }
     }
 
-  if ( carx < m_w-5 )
+  if(m_time %3 ==0)
+  {
+
+    if ( carx < m_w-5 )
     carx += 2;
   else
     carx = 0;
-
+  }
+  
+  if(m_time %6 ==0)
+  {
   if ( manx < m_w-3 )
     ++manx;
   else
     manx = 0;
-
+  }
+  
   house ( nextLattice, housex, 3*m_h/5 -6 );
   car ( nextLattice, carx, 3*m_h/5 +1 );
   man ( nextLattice, manx, 3*m_h/5-1 );

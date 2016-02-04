@@ -65,7 +65,7 @@ class GameOfLife : public QThread
 
     long m_time {0};
 
-    int m_delay {15};
+    int m_delay {1};
 
 public:
     GameOfLife ( int w = 30, int h = 20 );
