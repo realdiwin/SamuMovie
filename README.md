@@ -27,7 +27,7 @@ It is important to note that in the previous version the COP-based Q-learning
 has become trivial because after a short starting period it chooses the Q-action 
 that was passed in as the actual cell state argument. It means that the agent 
 does not predict the future but the present. This version has already been 
-improved. It really predicts the future.
+improved. It really predicts the future. It can be verify in [SamuLife](https://github.com/nbatfai/SamuLife)
 
 ## Other experiments
 
