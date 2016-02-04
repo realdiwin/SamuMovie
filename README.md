@@ -12,6 +12,8 @@ in which Samu must learn the frames of the moving picture.
 
 ## Usage
 
+### v0.0.1
+
 ```
 git clone https://github.com/nbatfai/SamuMovie.git
 cd SamuMovie/
@@ -22,6 +24,8 @@ make
 [https://youtu.be/XOPORbI1hz4](https://youtu.be/XOPORbI1hz4)
 
 ![samumovie](https://cloud.githubusercontent.com/assets/3148120/12219039/13fe4f14-b732-11e5-9590-1bd0d875fc93.png)
+
+### v0.0.2-predicting-the-present-eliminated
 
 It is important to note that in the previous version the COP-based Q-learning 
 has become trivial because after a short starting period it chooses the Q-action 
