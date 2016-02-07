@@ -33,6 +33,8 @@ that was passed in as the actual cell state argument. It means that the agent
 does not predict the future but the present. This version has already been 
 improved. It really predicts the future. It can be verify in [SamuLife](https://github.com/nbatfai/SamuLife)
 
+[https://youtu.be/yOZj6j1kVRg](https://youtu.be/yOZj6j1kVRg)
+
 ## Other experiments
 
 Samu (Nahshon)
