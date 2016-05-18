@@ -1,0 +1,6 @@
+build/
+SamuMovie
+*.o
+*.avi
+moc_*
+dev/

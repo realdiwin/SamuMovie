@@ -35,16 +35,22 @@
 #include <QMainWindow>
 #include <QPainter>
 #include <QFont>
+#include <QCloseEvent>
+#include "Converter.h"
 #include "GameOfLife.h"
 
 class SamuLife : public QMainWindow
 {
     Q_OBJECT
 
-    int m_cw {23*2}, m_ch {20*2};
+    int movieCapWidth {4}, movieCapHeight {4};
     GameOfLife *gameOfLife;
     bool **lattice {nullptr};
     bool **prediction {nullptr};
+
+    Converter *_converter;
+    void closeEvent(QCloseEvent *evt);
+
 
 public slots :
     void updateCells ( bool **, bool ** );
@@ -54,6 +60,7 @@ public:
     virtual ~SamuLife();
     void paintEvent ( QPaintEvent* );
     void keyPressEvent( QKeyEvent * event );
+
 
 };
 

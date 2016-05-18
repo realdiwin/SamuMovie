@@ -1,4 +1,22 @@
 # SamuMovie
+
+This project is a fork of the original SamuMovie project, and it is used for an exercise of the High Level Programming Languages 1 course.
+
+[Original SamuMovie project](https://github.com/nbatfai/SamuMovie) repository
+
+This is a video converter, which transforms the given input video(avi) into arrays(boolean).
+
+Tutors: Simkó Szilárd Viktor, Gyulai Alex
+
+Usage:
+./SamuMovie
+Click "Open the file"
+Select the video file from the dialog
+It will be automatically converted.
+Click "Launch samu"
+
+[Youtube video](https://www.youtube.com/watch?v=YAgiRkcjzjo) 
+
 [Samu](http://arxiv.org/abs/1511.02889) (Nahshon) has captured a movie. 
 This is an example of the manuscript entitled "Samu in his prenatal development".
 

@@ -33,9 +33,11 @@
 SamuLife::SamuLife ( int w, int h, QWidget *parent ) : QMainWindow ( parent )
 {
   setWindowTitle ( "SamuMovie" );
-  setFixedSize ( QSize ( 2*w*m_cw, h*m_ch ) );
+  setFixedSize ( QSize ( 2*w*movieCapWidth, h*movieCapHeight ) );
 
-  gameOfLife = new GameOfLife ( w, h );
+  _converter = new Converter{ w, h };
+  _converter->exec();
+  gameOfLife = new GameOfLife ( w, h, _converter );
   gameOfLife->start();
 
   connect ( gameOfLife, SIGNAL ( cellsChanged ( bool **, bool ** ) ),
@@ -64,30 +66,30 @@ void SamuLife::paintEvent ( QPaintEvent* )
           if ( lattice )
             {
               if ( lattice[i][j] )
-                qpainter.fillRect ( j*m_cw, i*m_ch,
-                                    m_cw, m_ch, Qt::black );
+                qpainter.fillRect ( j*movieCapWidth, i*movieCapHeight,
+                                    movieCapWidth, movieCapHeight, Qt::black );
               else
-                qpainter.fillRect ( j*m_cw, i*m_ch,
-                                    m_cw, m_ch, Qt::white );
+                qpainter.fillRect ( j*movieCapWidth, i*movieCapHeight,
+                                    movieCapWidth, movieCapHeight, Qt::white );
             }
           if ( prediction )
             {
               if ( prediction[i][j] )
-                qpainter.fillRect ( gameOfLife->getW() *m_cw + j*m_cw, i*m_ch,
-                                    m_cw, m_ch, Qt::black );
+                qpainter.fillRect ( gameOfLife->getW() *movieCapWidth + j*movieCapWidth, i*movieCapHeight,
+                                    movieCapWidth, movieCapHeight, Qt::black );
               else
-                qpainter.fillRect ( gameOfLife->getW() *m_cw + j*m_cw, i*m_ch,
-                                    m_cw, m_ch, Qt::white );
+                qpainter.fillRect ( gameOfLife->getW() *movieCapWidth + j*movieCapWidth, i*movieCapHeight,
+                                    movieCapWidth, movieCapHeight, Qt::white );
             }
           qpainter.setPen ( QPen ( Qt::red, 1 ) );
 
-          qpainter.drawRect ( j*m_cw, i*m_ch,
-                              m_cw, m_ch );
+          qpainter.drawRect ( j*movieCapWidth, i*movieCapHeight,
+                              movieCapWidth, movieCapHeight );
 
           qpainter.setPen ( QPen ( Qt::blue, 1 ) );
 
-          qpainter.drawRect ( gameOfLife->getW() *m_cw + j*m_cw, i*m_ch,
-                              m_cw, m_ch );
+          qpainter.drawRect ( gameOfLife->getW() *movieCapWidth + j*movieCapWidth, i*movieCapHeight,
+                              movieCapWidth, movieCapHeight );
         }
     }
 
@@ -97,9 +99,9 @@ void SamuLife::paintEvent ( QPaintEvent* )
   qpainter.setPen ( QPen ( Qt::red, 1 ) );
   qpainter.drawText ( 40, 60, "Reality" );
   qpainter.setPen ( QPen ( Qt::blue, 1 ) );
-  qpainter.drawText ( gameOfLife->getW() *m_cw +40, 60, "Samu's prediction" );
+  qpainter.drawText ( gameOfLife->getW() *movieCapWidth +40, 60, "Samu's prediction" );
   qpainter.setPen ( QPen ( Qt::gray, 1 ) );
-  qpainter.drawText ( 40, gameOfLife->getH() *m_ch - 30 , QString::number(gameOfLife->getT()) );
+  qpainter.drawText ( 40, gameOfLife->getH() *movieCapHeight - 30 , QString::number(gameOfLife->getT()) );
 
   qpainter.end();
 }
@@ -119,9 +121,16 @@ void SamuLife::keyPressEvent ( QKeyEvent * event )
       gameOfLife->setDelay(gameOfLife->getDelay() * 2.0);
     }
 }
-
 SamuLife::~SamuLife()
 {
   delete gameOfLife;
+}
+
+
+void SamuLife::closeEvent(QCloseEvent *evt)
+{
+   gameOfLife->stop();
+   gameOfLife->quit();
+   gameOfLife->wait();
 }
 
